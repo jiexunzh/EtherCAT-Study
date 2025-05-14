@@ -1,0 +1,37 @@
+#ifndef AX58100_H
+#define AX58100_H
+
+#include "gd32c11x.h"
+
+#define AX58100_INT_RCU           RCU_GPIOB
+#define AX58100_INT_PORT          GPIOB
+#define AX58100_INT_PIN           GPIO_PIN_0
+#define AX58100_INT_PORT_SOURCE   GPIO_PORT_SOURCE_GPIOB
+#define AX58100_INT_PIN_SOURCE    GPIO_PIN_SOURCE_0
+#define AX58100_INT_EXTI          EXTI_0
+#define AX58100_INT_EXTI_IRQn     EXTI0_IRQn
+#define AX58100_INT_IRQHandler    EXTI0_IRQHandler
+
+#define AX58100_SYNC0_RCU         RCU_GPIOA
+#define AX58100_SYNC0_PORT        GPIOA
+#define AX58100_SYNC0_PIN         GPIO_PIN_3
+#define AX58100_SYNC0_PORT_SOURCE GPIO_PORT_SOURCE_GPIOA
+#define AX58100_SYNC0_PIN_SOURCE  GPIO_PIN_SOURCE_3
+#define AX58100_SYNC0_EXTI        EXTI_3
+#define AX58100_SYNC0_EXTI_IRQn   EXTI3_IRQn
+#define AX58100_SYNC0_IRQHandler  EXTI3_IRQHandler
+
+#define AX58100_SYNC1_RCU         RCU_GPIOA
+#define AX58100_SYNC1_PORT        GPIOA
+#define AX58100_SYNC1_PIN         GPIO_PIN_4
+#define AX58100_SYNC1_PORT_SOURCE GPIO_PORT_SOURCE_GPIOA
+#define AX58100_SYNC1_PIN_SOURCE  GPIO_PIN_SOURCE_4
+#define AX58100_SYNC1_EXTI        EXTI_4
+#define AX58100_SYNC1_EXTI_IRQn   EXTI4_IRQn
+#define AX58100_SYNC1_IRQHandler  EXTI4_IRQHandler
+
+void ethercat_pdi_init(void);
+void ethercat_sync0_init(void);
+void ethercat_sync1_init(void);
+
+#endif /* AX58100_H */
