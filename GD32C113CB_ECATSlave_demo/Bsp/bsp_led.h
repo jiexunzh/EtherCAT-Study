@@ -7,9 +7,9 @@
 #define LED_PROT     GPIOC
 #define LED_PIN      GPIO_PIN_13
 
-#define LED_ON()     gpio_bit_reset(LED_PROT, LED_PIN)
-#define LED_OFF()    gpio_bit_set(LED_PROT, LED_PIN)
-#define LED_Toggle() gpio_bit_write(LED_PROT, LED_PIN, (bit_status)!gpio_input_bit_get(LED_PROT, LED_PIN))
+#define LED1_ON     gpio_bit_reset(LED_PROT, LED_PIN)
+#define LED1_OFF    gpio_bit_set(LED_PROT, LED_PIN)
+#define LED1_Toggle gpio_bit_write(LED_PROT, LED_PIN, (bit_status)!gpio_input_bit_get(LED_PROT, LED_PIN))
 
 void led_init(void);
 

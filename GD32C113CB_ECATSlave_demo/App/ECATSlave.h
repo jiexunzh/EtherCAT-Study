@@ -47,6 +47,21 @@
     #define PROTO extern
 #endif
 
+#pragma pack(1)	  // 使结构体的 1 字节对齐
+/* TPDO结构体 */
+typedef struct
+{
+	UINT8 button_1_2;
+	UINT8 padding;
+} _tpdo1A00_t;	
+
+/* RPDO结构体 */
+typedef struct
+{
+	UINT8 LED_1_2;
+	UINT8 padding;
+} _rpdo1600_t;	
+#pragma pack()	// 取消自定义字节对齐
 
 PROTO void APPL_Application(void);
 #if EXPLICIT_DEVICE_ID

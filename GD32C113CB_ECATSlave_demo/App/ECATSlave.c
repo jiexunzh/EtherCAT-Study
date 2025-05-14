@@ -39,7 +39,8 @@
 ------    local variables and constants
 ------
 -----------------------------------------------------------------------------------------*/
-
+volatile _tpdo1A00_t tpdodata;
+volatile _rpdo1600_t rpdodata;
 /*-----------------------------------------------------------------------------------------
 ------
 ------    application specific functions
@@ -262,14 +263,31 @@ UINT16 APPL_GenerateMapping(UINT16 *pInputSize,UINT16 *pOutputSize)
 
 \brief      This function will copies the inputs from the local memory to the ESC memory
             to the hardware
+			即 TPDO映射（0x1A00）数据
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_InputMapping(UINT16* pData)
 {
-#if _WIN32
-   #pragma message ("Warning: Implement input (Slave -> Master) mapping")
-#else
-    #warning "Implement input (Slave -> Master) mapping"
-#endif
+//#if _WIN32
+//   #pragma message ("Warning: Implement input (Slave -> Master) mapping")
+//#else
+//    #warning "Implement input (Slave -> Master) mapping"
+//#endif
+    UINT16 j = 0;
+    UINT16* pTmpData = (UINT16*)pData;
+    for (j = 0; j < sTxPDOassign.u16SubIndex0; j++)
+    {
+        switch (sTxPDOassign.aEntries[j])
+        {
+        /* TxPDO 1 */
+        case 0x1A00:
+            memcpy(pTmpData, (void*)&tpdodata, sizeof(_tpdo1A00_t));
+            pTmpData += sizeof(_tpdo1A00_t);
+            break;
+
+        default:
+            break;
+        }
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -278,14 +296,31 @@ void APPL_InputMapping(UINT16* pData)
 
 \brief    This function will copies the outputs from the ESC memory to the local memory
             to the hardware
+		  即 RPDO映射（0x1600）数据
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_OutputMapping(UINT16* pData)
 {
-#if _WIN32
-   #pragma message ("Warning: Implement output (Master -> Slave) mapping")
-#else
-    #warning "Implement output (Master -> Slave) mapping"
-#endif
+//#if _WIN32
+//   #pragma message ("Warning: Implement output (Master -> Slave) mapping")
+//#else
+//    #warning "Implement output (Master -> Slave) mapping"
+//#endif
+    UINT16 j = 0;
+    UINT16* pTmpData = (UINT16*)pData;
+    for (j = 0; j < sRxPDOassign.u16SubIndex0; j++)
+    {
+        switch (sRxPDOassign.aEntries[j])
+        {
+        /* RxPDO 1 */
+        case 0x1600:
+            memcpy((void*)&rpdodata, pTmpData, sizeof(_rpdo1600_t));
+            pTmpData += sizeof(_rpdo1600_t);
+            break;
+
+        default:
+            break;
+        }
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -298,7 +333,7 @@ void APPL_Application(void)
 #if _WIN32
    #pragma message ("Warning: Implement the slave application")
 #else
-    #warning "Implement the slave application"
+    #warning "Implement the slave application"	
 #endif
 }
 
