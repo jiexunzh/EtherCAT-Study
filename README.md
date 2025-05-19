@@ -10,7 +10,7 @@
 
 - GD32C113CB_ECATSlave_demo：GD32C113 AX58100 EtherCAT从站的实现
 - QT_ECAT_tool：QT SOEM EtherCAT主站的实现
-- PLC_validation：EtherCAT从站在TwinCAT、PLC上的验证
+- PLC_validation：TwinCAT、PLC测试例程
 
 - note：相关笔记
 
