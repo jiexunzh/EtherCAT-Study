@@ -2,7 +2,7 @@
 #include "bsp_led.h"
 
 #include "applInterface.h"
-#include "ECATSlave.h"
+#include "ECATSlave_V100.h"
 #include "el9800hw.h"
 
 uint32_t led_tick = 0;

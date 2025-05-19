@@ -138,7 +138,7 @@ V4.00 APPL 6: The main function was split in MainInit and MainLoop
 #include "applInterface.h"
 #undef _APPL_INTERFACE_
 
-#include "ECATSlave.h"
+#include "ECATSlave_V100.h"
 
 
 
@@ -153,7 +153,7 @@ V4.00 APPL 6: The main function was split in MainInit and MainLoop
 /**
  * \todo Define the timer ticks per ms
  */
-#warning "Define the timer ticks per ms"	// 无需理会，已定义一个1ms的定时器中断了
+//#warning "Define the timer ticks per ms"	// 无需理会，已定义一个1ms的定时器中断了
 #endif /* #ifndef ECAT_TIMER_INC_P_MS */
 
 

@@ -4,20 +4,20 @@
 */
 
 /**
- * \addtogroup ECATSlave ECATSlave
+ * \addtogroup ECATSlave_V100 ECATSlave_V100
  * @{
  */
 
 /**
-\file ECATSlave.h
-\brief ECATSlave function prototypes and defines
+\file ECATSlave_V100.h
+\brief ECATSlave_V100 function prototypes and defines
 
 \version 1.0.0.11
  */
 
  
- #ifndef _ECATSLAVE_H_
-#define _ECATSLAVE_H_
+ #ifndef _ECATSLAVE__V100_H_
+#define _ECATSLAVE__V100_H_
 
 
 /*-----------------------------------------------------------------------------------------
@@ -35,33 +35,33 @@
 ------
 -----------------------------------------------------------------------------------------*/
 
-#endif //_ECATSLAVE_H_
+#endif //_ECATSLAVE__V100_H_
 
 //include custom application object dictionary 
-#include "ECATSlaveObjects.h"
+#include "ECATSlave_V100Objects.h"
 
 
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
     #define PROTO
 #else
     #define PROTO extern
 #endif
 
-#pragma pack(1)	  // Ê¹½á¹¹ÌåµÄ 1 ×Ö½Ú¶ÔÆë
-/* TPDO½á¹¹Ìå */
+#pragma pack(1)	  // ä½¿ç»“æ„ä½“çš„ 1 å­—èŠ‚å¯¹é½
+/* TPDOç»“æ„ä½“ */
 typedef struct
 {
 	UINT8 button_1_2;
 	UINT8 padding;
 } _tpdo1A00_t;	
 
-/* RPDO½á¹¹Ìå */
+/* RPDOç»“æ„ä½“ */
 typedef struct
 {
 	UINT8 LED_1_2;
 	UINT8 padding;
 } _rpdo1600_t;	
-#pragma pack()	// È¡Ïû×Ô¶¨Òå×Ö½Ú¶ÔÆë
+#pragma pack()	// å–æ¶ˆè‡ªå®šä¹‰å­—èŠ‚å¯¹é½
 
 PROTO void APPL_Application(void);
 #if EXPLICIT_DEVICE_ID

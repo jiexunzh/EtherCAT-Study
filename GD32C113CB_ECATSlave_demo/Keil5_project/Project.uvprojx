@@ -394,9 +394,9 @@
               <FilePath>..\App\main.c</FilePath>
             </File>
             <File>
-              <FileName>ECATSlave.c</FileName>
+              <FileName>ECATSlave_V100.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\App\ECATSlave.c</FilePath>
+              <FilePath>..\App\ECATSlave_V100.c</FilePath>
             </File>
           </Files>
         </Group>

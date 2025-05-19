@@ -4,20 +4,20 @@
 */
 
 /**
- * \addtogroup ECATSlave ECATSlave
+ * \addtogroup ECATSlave_V100 ECATSlave_V100
  * @{
  */
 
 /**
-\file ECATSlave.h
-\brief ECATSlave function prototypes and defines
+\file ECATSlave_V100.h
+\brief ECATSlave_V100 function prototypes and defines
 
 \version 1.0.0.11
  */
 
  
- #ifndef _ECATSLAVE_H_
-#define _ECATSLAVE_H_
+ #ifndef _ECATSLAVE__V100_H_
+#define _ECATSLAVE__V100_H_
 
 
 /*-----------------------------------------------------------------------------------------
@@ -35,13 +35,13 @@
 ------
 -----------------------------------------------------------------------------------------*/
 
-#endif //_ECATSLAVE_H_
+#endif //_ECATSLAVE__V100_H_
 
 //include custom application object dictionary 
-#include "ECATSlaveObjects.h"
+#include "ECATSlave_V100Objects.h"
 
 
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
     #define PROTO
 #else
     #define PROTO extern

@@ -4,19 +4,19 @@
 */
 
 /**
-* \addtogroup ECATSlave ECATSlave
+* \addtogroup ECATSlave_V100 ECATSlave_V100
 * @{
 */
 
 /**
-\file ECATSlaveObjects
+\file ECATSlave_V100Objects
 \author ET9300Utilities.ApplicationHandler (Version 1.5.0.0) | EthercatSSC@beckhoff.com
 
-\brief ECATSlave specific objects<br>
+\brief ECATSlave_V100 specific objects<br>
 \brief NOTE : This file will be overwritten if a new object dictionary is generated!<br>
 */
 
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 #define PROTO
 #else
 #define PROTO extern
@@ -53,7 +53,7 @@ OBJCONST UCHAR OBJMEM aName0x1600[] = "RPDO\000"
 "SUB3\000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -64,13 +64,13 @@ UINT32 SI2; /* Subindex2 -  */
 UINT32 SI3; /* Subindex3 -  */
 } OBJ_STRUCT_PACKED_END
 TOBJ1600;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJ1600 RPDO0x1600
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={3,0x70000101,0x70000201,0x7000030E}
 #endif
 ;
@@ -110,7 +110,7 @@ OBJCONST UCHAR OBJMEM aName0x1A00[] = "TPDO\000"
 "SUB3\000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -121,13 +121,13 @@ UINT32 SI2; /* Subindex2 -  */
 UINT32 SI3; /* Subindex3 -  */
 } OBJ_STRUCT_PACKED_END
 TOBJ1A00;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJ1A00 TPDO0x1A00
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={3,0x60000101,0x60000201,0x6000030E}
 #endif
 ;
@@ -161,7 +161,7 @@ OBJCONST TSDOINFOENTRYDESC    OBJMEM asEntryDesc0x1C12[] = {
 OBJCONST UCHAR OBJMEM aName0x1C12[] = "SyncManager 2 assignment\000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -170,13 +170,13 @@ UINT16   u16SubIndex0;  /**< \brief Subindex 0 */
 UINT16 aEntries[1];  /**< \brief Subindex 1 - 1 */
 } OBJ_STRUCT_PACKED_END
 TOBJ1C12;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJ1C12 sRxPDOassign
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={1,{0x1600}}
 #endif
 ;
@@ -210,7 +210,7 @@ OBJCONST TSDOINFOENTRYDESC    OBJMEM asEntryDesc0x1C13[] = {
 OBJCONST UCHAR OBJMEM aName0x1C13[] = "SyncManager 3 assignment\000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -219,13 +219,13 @@ UINT16   u16SubIndex0;  /**< \brief Subindex 0 */
 UINT16 aEntries[1];  /**< \brief Subindex 1 - 1 */
 } OBJ_STRUCT_PACKED_END
 TOBJ1C13;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJ1C13 sTxPDOassign
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={1,{0x1A00}}
 #endif
 ;
@@ -265,7 +265,7 @@ OBJCONST UCHAR OBJMEM aName0x6000[] = "Button\000"
 "\000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -276,13 +276,13 @@ BOOLEAN(Button2); /* Subindex2 - Button2 */
 ALIGN14(SI3) /* Subindex3 */
 } OBJ_STRUCT_PACKED_END
 TOBJ6000;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJ6000 Button0x6000
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={2,0x00,0x00,0}
 #endif
 ;
@@ -322,7 +322,7 @@ OBJCONST UCHAR OBJMEM aName0x7000[] = "LED\000"
 "\000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -333,13 +333,13 @@ BOOLEAN(LED2); /* Subindex2 - LED2 */
 ALIGN14(SI3) /* Subindex3 */
 } OBJ_STRUCT_PACKED_END
 TOBJ7000;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJ7000 LED0x7000
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={2,0x00,0x00,0}
 #endif
 ;
@@ -376,7 +376,7 @@ OBJCONST UCHAR OBJMEM aName0xF000[] = "Modular Device Profile\000"
 "Maximum number of modules \000\377";
 #endif //#ifdef _OBJD_
 
-#ifndef _ECATSLAVE_OBJECTS_H_
+#ifndef _ECATSLAVE__V100_OBJECTS_H_
 /**
 * \brief Object structure
 */
@@ -386,13 +386,13 @@ UINT16 IndexDistance; /* Subindex1 - Index distance  */
 UINT16 MaximumNumberOfModules; /* Subindex2 - Maximum number of modules  */
 } OBJ_STRUCT_PACKED_END
 TOBJF000;
-#endif //#ifndef _ECATSLAVE_OBJECTS_H_
+#endif //#ifndef _ECATSLAVE__V100_OBJECTS_H_
 
 /**
 * \brief Object variable
 */
 PROTO TOBJF000 ModularDeviceProfile0xF000
-#if defined(_ECATSLAVE_) && (_ECATSLAVE_ == 1)
+#if defined(_ECATSLAVE__V100_) && (_ECATSLAVE__V100_ == 1)
 ={2,0x0010,0}
 #endif
 ;
@@ -425,4 +425,4 @@ TOBJECT    OBJMEM ApplicationObjDic[] = {
 #undef PROTO
 
 /** @}*/
-#define _ECATSLAVE_OBJECTS_H_
+#define _ECATSLAVE__V100_OBJECTS_H_

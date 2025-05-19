@@ -122,7 +122,7 @@ V4.00 ECAT 1: The handling of the Sync Manager Parameter was included according 
 
 
 /*Add Application specific Objects*/
-#include "ECATSlave.h"
+#include "ECATSlave_V100.h"
 
 
 #undef _OBJD_

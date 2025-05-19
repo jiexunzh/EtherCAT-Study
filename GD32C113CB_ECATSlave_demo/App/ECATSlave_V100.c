@@ -4,12 +4,12 @@
 */
 
 /**
-\addtogroup ECATSlave ECATSlave
+\addtogroup ECATSlave_V100 ECATSlave_V100
 @{
 */
 
 /**
-\file ECATSlave.c
+\file ECATSlave_V100.c
 \brief Implementation
 
 \version 1.0.0.11
@@ -25,9 +25,9 @@
 
 #include "applInterface.h"
 
-#define _ECATSLAVE_ 1
-#include "ECATSlave.h"
-#undef _ECATSLAVE_
+#define _ECATSLAVE__V100_ 1
+#include "ECATSlave_V100.h"
+#undef _ECATSLAVE__V100_
 /*--------------------------------------------------------------------------------------
 ------
 ------    local types and defines
@@ -263,15 +263,14 @@ UINT16 APPL_GenerateMapping(UINT16 *pInputSize,UINT16 *pOutputSize)
 
 \brief      This function will copies the inputs from the local memory to the ESC memory
             to the hardware
-			即 TPDO映射（0x1A00）数据
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_InputMapping(UINT16* pData)
 {
-//#if _WIN32
-//   #pragma message ("Warning: Implement input (Slave -> Master) mapping")
-//#else
-//    #warning "Implement input (Slave -> Master) mapping"
-//#endif
+// #if _WIN32
+//    #pragma message ("Warning: Implement input (Slave -> Master) mapping")
+// #else
+//     #warning "Implement input (Slave -> Master) mapping"
+// #endif
     UINT16 j = 0;
     UINT16* pTmpData = (UINT16*)pData;
     for (j = 0; j < sTxPDOassign.u16SubIndex0; j++)
@@ -296,15 +295,14 @@ void APPL_InputMapping(UINT16* pData)
 
 \brief    This function will copies the outputs from the ESC memory to the local memory
             to the hardware
-		  即 RPDO映射（0x1600）数据
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_OutputMapping(UINT16* pData)
 {
-//#if _WIN32
-//   #pragma message ("Warning: Implement output (Master -> Slave) mapping")
-//#else
-//    #warning "Implement output (Master -> Slave) mapping"
-//#endif
+// #if _WIN32
+//    #pragma message ("Warning: Implement output (Master -> Slave) mapping")
+// #else
+//     #warning "Implement output (Master -> Slave) mapping"
+// #endif
     UINT16 j = 0;
     UINT16* pTmpData = (UINT16*)pData;
     for (j = 0; j < sRxPDOassign.u16SubIndex0; j++)
@@ -333,7 +331,7 @@ void APPL_Application(void)
 #if _WIN32
    #pragma message ("Warning: Implement the slave application")
 #else
-    #warning "Implement the slave application"	
+    #warning "Implement the slave application"
 #endif
 }
 

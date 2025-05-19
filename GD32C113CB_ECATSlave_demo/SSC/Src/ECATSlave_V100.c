@@ -4,12 +4,12 @@
 */
 
 /**
-\addtogroup ECATSlave ECATSlave
+\addtogroup ECATSlave_V100 ECATSlave_V100
 @{
 */
 
 /**
-\file ECATSlave.c
+\file ECATSlave_V100.c
 \brief Implementation
 
 \version 1.0.0.11
@@ -25,9 +25,9 @@
 
 #include "applInterface.h"
 
-#define _ECATSLAVE_ 1
-#include "ECATSlave.h"
-#undef _ECATSLAVE_
+#define _ECATSLAVE__V100_ 1
+#include "ECATSlave_V100.h"
+#undef _ECATSLAVE__V100_
 /*--------------------------------------------------------------------------------------
 ------
 ------    local types and defines
