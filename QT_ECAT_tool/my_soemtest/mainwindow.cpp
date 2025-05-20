@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+extern "C"{
+#include "eepromtool.h"
+}
 
 MainWindow::~MainWindow()
 {
@@ -21,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(pdotimer, &QTimer::timeout, this, &MainWindow::pdoTaskTimout);
     // 将槽函数clearTextBrowser和“清除按钮按下信号”连接起来
     QObject::connect(ui->clear_pushButton, &QPushButton::clicked, this, &MainWindow::clearTextBrowser);
+
+    QObject::connect(ui->eepdisp_pushButton, &QPushButton::clicked, this, &MainWindow::eepromDispSlavers);
 
     ConnectFlag = false;     /* 默认未连接 */
 
@@ -61,6 +66,7 @@ void MainWindow::set_soem_init(void)
     ec_close();
 
     ConnectFlag = false;
+    ui->con_pushButton->setText(QString::fromLocal8Bit("Try to Op"));
 }
 
 /**
@@ -128,6 +134,7 @@ void MainWindow::connectToSlavers(void)
                 {
                     ui->textBrowser->append("Operational state reached for all slaves.\n");
                     ConnectFlag = true;
+                    ui->con_pushButton->setText(QString::fromLocal8Bit("Try to Init"));
                 }
                 else
                 {
@@ -159,14 +166,9 @@ void MainWindow::connectToSlavers(void)
         }
     }
     else    /* 关闭连接 */
-    {
+    {        
         set_soem_init();
     }
-
-    if (ConnectFlag == true)
-        ui->con_pushButton->setText(QString::fromLocal8Bit("Try to Init"));
-    else
-        ui->con_pushButton->setText(QString::fromLocal8Bit("Try to Op"));
 }
 
 /**
@@ -185,4 +187,24 @@ void MainWindow::pdoTaskTimout(void)
 void MainWindow::clearTextBrowser(void)
 {
     ui->textBrowser->clear();  // 直接清空所有内容
+}
+
+void MainWindow::eepromDispSlavers(void)
+{
+    char* eth0;
+    /* 获取网卡 */
+    ifname = ui->eth_comboBox->currentText();
+    QByteArray ba = ethinfo[ifname].toLatin1();
+    eth0 = ba.data();
+
+    if (ConnectFlag == true)
+    {
+        set_soem_init();    // 确保读取时不处于OP状态
+    }
+
+    EEPROM_info_t eep_info{};   // C++ 结构体初始化写法
+    my_eeprom_display(eth0, 1, (char*)"test.bin", &eep_info);
+    ui->textBrowser->append(QString::asprintf("Slave %d data: ", eep_info.slave_num));
+    ui->textBrowser->append(QString::asprintf(" Vendor ID        : 0x%8.8X", eep_info.vendor_id));
+    ui->textBrowser->append(QString::asprintf(" Product Code     : 0x%8.8X\n", eep_info.product_code));
 }

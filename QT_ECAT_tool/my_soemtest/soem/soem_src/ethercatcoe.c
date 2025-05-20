@@ -963,7 +963,6 @@ int ecx_readPDOmapCA(ecx_contextt *context, uint16 Slave, int Thread_n, int *Osi
         {
            tSM = 4;
         }   // ----------------------------------------------End of Patch
-
          if(tSM)
          {
             tSM += SMt_bug_add; // only add if SMt > 0

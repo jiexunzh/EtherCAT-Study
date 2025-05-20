@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // use high DPI support
     QApplication a(argc, argv);    
     MainWindow w;
+    w.setWindowTitle(QStringLiteral("EtherCAT Slave Test Tool"));
     w.show();
     return a.exec();
 }

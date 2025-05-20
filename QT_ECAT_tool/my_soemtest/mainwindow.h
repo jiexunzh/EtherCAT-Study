@@ -29,6 +29,7 @@ private slots:                                  /* 私有槽函数 */
     void connectToSlavers(void);                /* 连接按钮槽函数，用于处理“连接”按钮的点击事件 */
     void pdoTaskTimout(void);                   /* 定时器槽函数，用于过程数据通信（PDO） */
     void clearTextBrowser(void);                /* 清空TextBrowser */
+    void eepromDispSlavers(void);
 private:
     Ui::MainWindow *ui;
     QTimer *pdotimer;               /* 定时器对象指针 */

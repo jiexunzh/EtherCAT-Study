@@ -45,11 +45,13 @@ SOURCES += \
     $${soem}/soem_src/osal.c \
     $${soem}/soem_src/nicdrv.c \
     $${soem}/soem_src/oshw.c \
+    eepromtool.c \
 
 INCLUDEPATH += \
     $${soem}/soem_inc \
     $${soem}/wpcap/Include \
     $${soem}/wpcap/Include/pcap \
+    $$PWD
 
 LIBS += \
     $${soem}/wpcap/Lib/x64/Packet.lib   \
