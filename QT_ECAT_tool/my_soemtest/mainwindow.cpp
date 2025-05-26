@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 extern "C"{
+#include "ethercat.h"
 #include "eepromtool.h"
 }
 
@@ -38,16 +40,21 @@ MainWindow::MainWindow(QWidget *parent)
  */
 void MainWindow::getEthInfo(void)
 {
-    ec_adaptert* adapter = NULL;
+    ec_adaptert* adapter;
+    ec_adaptert* head;      // 保存指向链表中的第一个元素的指针
+
     adapter = ec_find_adapters();
+    head = adapter;
+
     while (adapter != NULL)
     {
         ui->eth_comboBox->addItem(QString::fromUtf8(adapter->desc, -1));
         ethinfo.insert(adapter->desc, adapter->name);
         adapter = adapter->next;
     }
+
     // 释放链表
-    ec_free_adapters(adapter);
+    ec_free_adapters(head);
 }
 
 /**
@@ -189,6 +196,9 @@ void MainWindow::clearTextBrowser(void)
     ui->textBrowser->clear();  // 直接清空所有内容
 }
 
+/**
+ * @brief 槽函数，显示从站EEPROM部分信息
+ */
 void MainWindow::eepromDispSlavers(void)
 {
     char* eth0;

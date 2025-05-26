@@ -18,9 +18,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    eepromtool.c \
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    eepromtool.h \
 
 FORMS += \
     mainwindow.ui
@@ -30,32 +32,32 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-soem += $$PWD/soem      # $$PWD: 当前工作目录
+soem_path += $$PWD/soem      # $$PWD: 当前工作目录
 
 SOURCES += \
-    $${soem}/soem_src/ethercatbase.c \
-    $${soem}/soem_src/ethercatcoe.c \   # 需要打补丁！
-    $${soem}/soem_src/ethercatconfig.c \
-    $${soem}/soem_src/ethercatdc.c \
-    $${soem}/soem_src/ethercateoe.c \
-    $${soem}/soem_src/ethercatfoe.c \
-    $${soem}/soem_src/ethercatmain.c \
-    $${soem}/soem_src/ethercatprint.c \
-    $${soem}/soem_src/ethercatsoe.c \
-    $${soem}/soem_src/osal.c \
-    $${soem}/soem_src/nicdrv.c \
-    $${soem}/soem_src/oshw.c \
-    eepromtool.c \
+    $${soem_path}/soem/src/ethercatbase.c \
+    $${soem_path}/soem/src/ethercatcoe.c \   # 需要打补丁！
+    $${soem_path}/soem/src/ethercatconfig.c \
+    $${soem_path}/soem/src/ethercatdc.c \
+    $${soem_path}/soem/src/ethercateoe.c \
+    $${soem_path}/soem/src/ethercatfoe.c \
+    $${soem_path}/soem/src/ethercatmain.c \
+    $${soem_path}/soem/src/ethercatprint.c \
+    $${soem_path}/soem/src/ethercatsoe.c \
+    $${soem_path}/oshw/src/nicdrv.c \
+    $${soem_path}/oshw/src/oshw.c \
+    $${soem_path}/osal/src/osal.c \
 
 INCLUDEPATH += \
-    $${soem}/soem_inc \
-    $${soem}/wpcap/Include \
-    $${soem}/wpcap/Include/pcap \
-    $$PWD
+    $${soem_path}/soem/inc \
+    $${soem_path}/oshw/inc \
+    $${soem_path}/osal/inc \
+    $${soem_path}/oshw/wpcap/Include \
+    $${soem_path}/oshw/wpcap/Include/pcap \
 
 LIBS += \
-    $${soem}/wpcap/Lib/x64/Packet.lib   \
-    $${soem}/wpcap/Lib/x64/wpcap.lib   \
+    $${soem_path}/oshw/wpcap/Lib/x64/Packet.lib   \
+    $${soem_path}/oshw/wpcap/Lib/x64/wpcap.lib   \
 
 LIBS += -lWinmm          # 链接 Winmm.lib（Windows 多媒体库）
 LIBS += -lws2_32         # 链接 ws2_32.lib（Windows Socket 库）
